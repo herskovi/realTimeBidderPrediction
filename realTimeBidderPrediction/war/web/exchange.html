@@ -1,0 +1,636 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A simulator for sending RTB requests to the Bidding engine.">
+      <meta name="keywords" content="RTB,OpenRTB,JAVA,Advertising,real-time,exchange,video,vast,banner,simulation,bid,response">
+      <meta name="author" content="RTB4FREE">
+      <title>RTB4FREE Simulator</title>
+       <link href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    rel="stylesheet">
+    <link href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"
+    rel="stylesheet">
+    <link href="bootstrap-dialog.css" rel="stylesheet">
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/vkbeautify.0.99.00.beta.js"></script>
+    
+    <link href="http://vjs.zencdn.net/4.7.1/video-js.css" rel="stylesheet">
+    <link href="vplayer/lib/videojs-contrib-ads/videojs.ads.css" rel="stylesheet" type="text/css">
+    <link href="vplayer/videojs.vast.css" rel="stylesheet" type="text/css">
+    
+  <style type="text/css">
+    .description {
+      background-color:#eee;
+      border: 1px solid #777;
+      padding: 10px;
+      font-size: .8em;
+      line-height: 1.5em;
+      font-family: Verdana, sans-serif;
+    }
+    .example-video-container {
+      display: inline-block;
+    }
+  </style>
+    
+     <!--[if lt IE 9]><script src="lib/es5.js"></script><![endif]-->
+     <script src="http://vjs.zencdn.net/4.7.1/video.js"></script>
+     <script src="vplayer/lib/videojs-contrib-ads/videojs.ads.js"></script>
+
+     <script src="vplayer/lib/vast-client.js"></script>
+     <script src="vplayer/videojs.vast.js"></script>
+      
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5532985-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+      
+      <script>
+         var date = new Date();
+         var bannerBid = {
+         id: "35c22289-06e2-48e9-a0cd-94aeb79fab43",
+         at: 2,
+         imp: [
+             {
+                 id: "35c22289-06e2-48e9-a0cd-94aeb79fab43-1",
+                 instl: 0,
+                 banner: {
+                     h: 50,
+                     w: 320,
+                     pos: 0
+                 },
+                 ext: {
+                     "nex_screen": 0
+                 }
+             }
+         ],
+         site: {
+             id: "99201",
+             name: "Bidder Test Mobile WEB",
+             domain: "junk1.com",
+             cat: [
+                 "IAB1", "IAB2"
+             ],
+             keywords: "radiation",
+             page: "http://www.nexage.com",
+             ref: "http://www.iab.net",
+             search: "radiation",
+             publisher: {
+                 id: "98401",
+                 name: "RTB Bidder Integration Test Publisher"
+             },
+             ext: {
+                 "nex_coppa": 0
+             }
+         },
+         device: {
+             didsha1: "132079238ec783b0b89dff308e1f9bdd08576273",
+             dpidsha1: "f22711a823044bb9ce7ace097955de0286eb0182",
+             ip: "166.137.138.18",
+             carrier: "ATT",
+             ua: "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; el-gr) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5",
+             make: "Apple",
+             model: "iPhone",
+             osv: "3.1.2",
+             connectiontype: 3,
+             devicetype: 1,
+             geo: {
+                 lat: 42.378,
+                 lon: -71.227,
+                 country: "USA"
+             }
+         },
+         user: {
+             id: "ASDFJKL",
+             yob: 1961,
+             gender: "F",
+             keywords: "sports",
+             geo: {
+                 country: "USA",
+                 city: "Waltham",
+                 zip: "02451",
+                 region: "MA",
+                 type: 3
+             },
+             ext: {
+                 nex_eth: "4",
+                 nex_marital: "M",
+                 nex_kids: "N",
+                 nex_hhi: 75000,
+                 nex_dma: "Boston"
+             }
+         }
+         };
+         
+         var videoBid = {
+         id: "72c22289-06e2-48e9-a0cd-94aeb79fab43",
+         at: 2,
+         imp: [
+             {
+                 id: "72c22289-06e2-48e9-a0cd-94aeb79fab43-1",
+                 instl: 0,
+                 video: {
+                     h: 200,
+                     w: 400,
+                     linearity: 1,
+                	 minduration: 5,
+                	 maxduration: 30,
+                	 protocol:2,
+                	 mimes: [
+ 						"video/x-flv",
+ 						"video/mp4",
+ 						"application/x-shockwave-flash",
+ 						"application/javascript"
+ 					 ],
+                     pos: 0
+                 },
+                 ext: {
+                     "nex_screen": 0
+                 }
+             }
+         ],
+         site: {
+             id: "99201",
+             name: "Bidder Test Mobile WEB",
+             domain: "junk1.com",
+             cat: [
+                 "IAB1", "IAB2"
+             ],
+             keywords: "radiation",
+             page: "http://www.nexage.com",
+             ref: "http://www.iab.net",
+             search: "radiation",
+             publisher: {
+                 id: "98401",
+                 name: "RTB Bidder Integration Test Publisher"
+             },
+             ext: {
+                 "nex_coppa": 0
+             }
+         },
+         device: {
+             didsha1: "132079238ec783b0b89dff308e1f9bdd08576273",
+             dpidsha1: "f22711a823044bb9ce7ace097955de0286eb0182",
+             ip: "166.137.138.18",
+             carrier: "ATT",
+             ua: "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; el-gr) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5",
+             make: "Apple",
+             model: "iPhone",
+             osv: "3.1.2",
+             connectiontype: 3,
+             devicetype: 1,
+             geo: {
+                 lat: 42.378,
+                 lon: -71.227,
+                 country: "USA"
+             }
+         },
+         user: {
+             id: "ASDFJKL",
+             yob: 1961,
+             gender: "F",
+             keywords: "sports",
+             geo: {
+                 country: "USA",
+                 city: "Waltham",
+                 zip: "02451",
+                 region: "MA",
+                 type: 3
+             },
+             ext: {
+                 nex_eth: "4",
+                 nex_marital: "M",
+                 nex_kids: "N",
+                 nex_hhi: 75000,
+                 nex_dma: "Boston"
+             }
+         }
+         };
+         
+         var bid = bannerBid;
+         
+         function sendTest() {
+         
+         
+         executeDyno();
+         
+         output = "<input type='button' onclick='loadImage(\"" + nurl + "\")' value='Send Win'>";
+         document.getElementById("nurl").innerHTML = output;
+         document.getElementById("image").innerHTML = "";
+         document.getElementById("click-info").value = "";
+         
+         code = document.getElementById("code").value;
+         eval(code);
+         document.getElementById("code").value = "";
+         data = JSON.stringify(bid,null,2);
+         document.getElementById("bid").innerHTML = data;
+         time = date.getMilliseconds();
+         
+         
+         $.ajax({
+         type: 'POST',
+         url:'/rtb/bids/nexage',
+         data: data,
+         success: function(data, textStatus, request){
+           time = date.getMilliseconds() - time;
+           if (request.status == 204) {
+           	text = "";
+           } else {
+           	text = request.responseText;
+           	data = JSON.parse(text);
+           	text = JSON.stringify(data,null,2);
+           
+           	nurl = data.seatbid[0].bid[0].nurl;
+          	nurl = unescape(nurl); 	
+          	
+          	nurl = nurl.replace("{AUCTION_PRICE}","5.0");
+          	
+          	vals  = nurl.split("http:");
+          	imageUrl = "http:"+vals[vals.length-1];
+          	parts = imageUrl.split("?");url=
+             
+             nurl = encodeURI(nurl);
+           
+             output = "<input type='button' onclick='loadImage(\"" + nurl + "\")' value='Send Win'>" + nurl;
+           
+           	document.getElementById("nurl").innerHTML = output;
+         
+           }
+           xtime = request.getResponseHeader('X-TIME');
+           xreason = request.getResponseHeader('X-REASON');
+           report = "<h3>X-TIME: " + xtime + ", RTT: " + time;
+           if (xreason != null) {
+           	 report += ", *** NO BID *** REASON: " + xreason + "</h3>";
+           }
+           report += "</h3>";
+           document.getElementById("analyze").innerHTML = report;
+           document.getElementById("response").innerHTML = text;
+         },
+         error: function (request, textStatus, errorThrown) {
+           alert("Error: " + request.responseText);
+         }});
+         
+         }
+         
+         function show() {
+         executeDyno();
+         data = "bid = " + JSON.stringify(bid,null,2);
+         document.getElementById("code").value = data;
+         }
+         
+         function loadImage(nurl) {
+         
+         
+         nurl = nurl.replace("{AUCTION_PRICE}","5.0");
+         
+         
+         $.ajax({
+         type: 'POST',
+         url:nurl,
+         data: "",
+         success: function(data, textStatus, request){
+         	text = request.responseText;
+         	
+         	text = text.replace('${AUCTION_PRICE}','5.0');        // simulate exchange macro substitution
+         	text = decodeURIComponent(text);
+         	   	
+         	
+         	x = document.getElementById("click-info");
+         	if (typeof bid.imp[0].video == 'undefined') {
+         		document.getElementById("image").innerHTML = text;   
+         	}
+         	else {
+         		document.getElementById("image").innerHTML = vastData;
+         		
+         		
+         		vid2 = videojs('vid2');
+				vid2.muted(false);
+				vid2.ads();
+				vid2.vast({
+      				url:  text
+   				 });
+         	}
+         	      
+   			text = vkbeautify.xml(text);
+   			x.value = text;   					// inner text
+           
+           
+
+         },
+         error: function (request, textStatus, errorThrown) {
+           alert("Error: " + request.responseText);
+         }});
+         
+         ///////////////////
+         }
+         
+      </script>
+      <style type="text/css">
+         table.fixed { table-layout:fixed; }
+         table.fixed td { overflow: hidden; 
+         html, body
+         {
+         font-family: verdana,sans-serif;
+         margin: 0;
+         padding: 5px;
+         }
+        
+      </style>
+   </head>
+   <body>
+   
+   <div class="container">
+   
+      <h2>RTB4FREE Bid Simulator</h1>
+      <p>The purpose of this page is to provide you with an easy way to send test bids to the running RTB4FREE bidder.<br/>
+      You can send a bid to tbe responded to by the built-in campaign, or, you can create your own campaign and ask<br/> 
+      the RTB4FREE bidding engine to consider only your campaign in making a bid.</p>
+      <p>The RTB4FREE supports both banner and video ads. Below, choose what kind of bid request you would like to send
+      the RTB4FREE bidding engine</p>
+      <h3>Bid Attributes</h3>
+      <input type="button" onclick="doBanner();" value="Banner">
+      <input type="button" onclick="doVideo();" value="Video"> (After you test a video ad, refresh the screen to reload the player)
+      <hr/>
+      <table id="addinput">
+         <th>Attribute</th>
+         <th>Value</th>
+         <tr id="row0">
+            <td>
+               <input type="text" id="p_new_a" size="40" name="p_new" value="" placeholder="object name" />
+            </td>
+            <td>
+               <input type="text" id="p_new_b" size="60" name="p_new" value="" placeholder="value(s) go here" />
+            </td>
+            <td><a href="javascript:doDyno();">Add</a></td>
+         </tr>
+      </table>
+      </td>
+
+      </form>
+      <br/>
+      <table>
+         <tr>
+            <td>Free form:<br/><input type="button" onclick="show()" value="Show"></td>
+            <td>
+               <pre>
+      <textarea rows="8" cols="75" id="code">
+/* bid.ad = 3; ... */
+</textarea>
+            </td>
+            </pre>
+         </tr>
+      </table>
+
+      <button onclick="sendTest()">Test</button>
+      <hr />
+      <div id="analyze">
+         <h3>X-TIME: 0, RTT: 0</h3>
+      </div>
+
+      <h3>NURL:</h3>
+      <div id="nurl"></div>
+      <table style="fixed" border="1">
+         <col width="320px" />
+         <col width="600" />
+         <tr>
+            <td height="50">
+               <div id="image">
+                  Click Through Image
+               </div>
+            </td>
+            <td>
+             		<textarea id="click-info" textarea class="form-control" rows="10" readonly></textarea>
+            </td>
+         </tr>
+      </table>
+      <hr />
+      <table>
+         <tr>
+            <td>
+               <pre>
+      <textarea rows="20" cols="75" id="bid" readonly>
+      </textarea>
+   </pre>
+            </td>
+            <td>
+               <pre>
+      <textarea rows="20" cols="75" id="response" readonly>
+      </textarea>
+   </pre>
+            </td>
+         </tr>
+      </table>
+      <script>
+      
+      
+      
+vastData = "" +
+  "<video id='vid2' class='video-js vjs-default-skin' autoplay controls preload='auto'" +
+  "      poster='http://video-js.zencoder.com/oceans-clip.png'" +
+  "      data-setup='{}'" +
+  "      width='300'" +
+  "      height='300'" +
+  "     >" +
+  "    <source src='http://video-js.zencoder.com/oceans-clip.mp4' type='video/mp4'>" +
+  "    <source src='http://video-js.zencoder.com/oceans-clip.webm' type='video/webm'>" +
+  "    <source src='http://video-js.zencoder.com/oceans-clip.ogv' type='video/ogg'>" +
+  "    <p>Video Playback Not Supported</p>" +
+  "  </video>"; 
+      
+      
+      
+         /**
+           * Add new row data 
+           */
+           
+         rowCount = 1;
+         function dyno(what, a, b) {
+         	var table = document.getElementById("addinput");
+         	if (what === 'new') {
+         		rowCount++;
+         		row = table.insertRow(-1);
+         		row.setAttribute("id", "row" + rowCount);
+         		var cell1 = row.insertCell(0);
+         		var cell2 = row.insertCell(1);
+         		var cell3 = row.insertCell(2);
+         		
+         		if (a === undefined) 
+         			value ="?"
+         		else 
+         			value = a;
+         		cell1.innerHTML = '<input type="text" id="p_new" size="40" name="p_new" value="' + value + '" placeholder="object name" />';
+         
+         		if (b === undefined)
+         			value = "?";
+         		else
+         			value = b;
+         	
+         		name = "";
+         		if (b instanceof Array) {
+         			if (typeof(b[0]) == "string")
+         				name = "array string";
+         			else
+         				name = "array number";
+         		}
+         		else {
+         			if (typeof(b[0]) == "string")
+         				name = "scalar string";
+         			else
+         				name = "scalar number";
+         		}
+         
+         		cell2.innerHTML = '<input type="text" id="p_new" size="60" name="'+name+'" value=' + value + ' placeholder="value" />';
+         		cell3.innerHTML = '<a href="javascript:dyno(' + rowCount + ');">Del</a>';
+         	} else {
+         	 for(var i = 0; i < table.rows.length; i++) {
+         	 	row = table.rows[i];
+         	 	id = row.getAttribute("id");
+         	 	if (id == "row" + what)  {
+         	 		table.deleteRow(i);
+         	 		return;
+         	 	}
+         	 }
+         
+             }     
+         };
+         
+         function doDyno() {
+         	var a = document.getElementById("p_new_a").value;
+         	var b = document.getElementById("p_new_b").value;
+         	if (a == '') {
+         		alert("Error: Can't have a blank Atrribute");
+         		return;
+         	}
+         	if (b == '') {
+         		alert("Error: Can't have a blank Value");
+         		return;
+         	}
+         	dyno("new",a,b);
+         	document.getElementById("p_new_a").value = "";
+         	document.getElementById("p_new_b").value = "";
+         }
+         
+         function executeDyno() {
+         	var table = document.getElementById("addinput");
+          	for(var i = 1; i < table.rows.length; i++) {
+         	 	row = table.rows[i];
+         	 	cells = row.cells;
+         	 	cell1 = cells.item(0);
+         	 	cell2 = cells.item(1);
+         	 
+         	 	a = cell1.children[0].value;
+         	 	value = cell2.children[0].value;
+         	 	
+         	 	typefield = cell2.children[0].name;
+         	 	types = typefield.split(" ");
+         	 		
+         	 	b = "";
+         	 	if (value.length > 0) {
+         	 		if (types[0] == "array") {
+         	 			b = "[";
+         	 			items = value.split(",");
+         	 			for (j=0;j<items.length;j++) {
+         	 				items[j] = items[j].trim();
+         	 				if (types[1]=="string")
+         	 					b += '"'+items[j]+'"';
+         	 				else
+         	 					b += items[j];
+         	 				if (j+1 < items.length)
+         	 					b += ","
+         	 			}
+         	 			b += "]";
+         	 		}
+         	 		else {
+         	 			if (types[1]=="string")
+         	 				b = '"'+value+'"';	
+         	 			else 
+         	 				b = value;
+         	 		}
+         
+         	 		x = a + " = " + b;
+         	 		try {
+         	 			eval(x);
+         	 		} catch(err) {
+         	 			alert(err+"\n"+b);
+         	 		}
+         	 	}
+         	 } 
+         	 console.log(JSON.stringify(bid,null,2));
+         }
+         
+         function bannerOrVideo() {
+         	clearDyno();
+         	if (videoMode == true) {
+         		bid = videoBid;
+        		dyno("new", "bid.imp[0].video.w",           bid.imp[0].video.w) ;
+         		dyno("new", "bid.imp[0].video.h",           bid.imp[0].video.h) ;
+         		dyno("new", "bid.imp[0].video.linearity",   bid.imp[0].video.linearity) ;
+         		dyno("new", "bid.imp[0].video.minduration", bid.imp[0].video.minduration) ;
+         		dyno("new", "bid.imp[0].video.maxduration", bid.imp[0].video.maxduration) ;
+         		dyno("new", "bid.imp[0].video.mimes",       bid.imp[0].video.mimes) ;
+         		dyno("new", "bid.imp[0].video.protocol",    bid.imp[0].video.protocol) ;
+         	} else {
+         		bid = bannerBid;
+         	    dyno("new", "bid.imp[0].banner.w", bid.imp[0].banner.w) ;
+         		dyno("new", "bid.imp[0].banner.h", bid.imp[0].banner.h) ;
+         	}
+         	dyno("new", "bid.site.domain", bid.site.domain) ;
+         	dyno("new", "bid.user.geo.country", bid.user.geo.country);
+         	dyno("new", "bid.site.cat", bid.site.cat);
+         	dyno("new", "bid.site.gender", bid.user.gender);
+         }
+         
+         function clearDyno() {
+         	
+         	var table = document.getElementById("addinput");
+            while(table.rows.length>0) {
+               table.deleteRow('');
+            }
+         }
+         
+         function doVideo() {
+            clearFields();
+         	videoMode = true;
+         	bannerOrVideo();
+         }
+         
+         function doBanner() {
+            clearFields();
+         	videoMode = false;
+         	bannerOrVideo();
+         }
+         
+         function clearFields() {
+            document.getElementById("analyze").innerHTML = "";
+            document.getElementById("bid").innerHTML = "";
+            document.getElementById("response").innerHTML = "";
+            document.getElementById("nurl").innerHTML = "";
+         	document.getElementById("image").innerHTML = "";
+         	document.getElementById("click-info").value = "";
+         	document.getElementById("code").innerHtml = "";
+         }
+         
+         var videoMode = false;
+       
+         
+      </script>
+      
+      
+              <footer>
+        <p>&copy; Ben M. Faul, Peter Loh, RTB4FREE.ORG 2015<br/>Email: Ben.Faul@gmail.com</p>
+      </footer>
+      
+      </div>
+   </body>
+</html>
